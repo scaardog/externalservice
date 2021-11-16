@@ -29,7 +29,7 @@ public class MessageProcessorController {
 
     @GetMapping("/do-something")
     public ResponseEntity<String> doSomething(@RequestParam("message") String message) {
-        if (bucket.tryConsume(1)) {
+        /*if (bucket.tryConsume(1)) {
             try {
                 Files.writeString(
                         Path.of(fileName),
@@ -40,7 +40,7 @@ public class MessageProcessorController {
                 System.out.println(e.getMessage());
             }
             return ResponseEntity.ok("Сообщение получено");
-        }
+        }*/
 
         return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
                 .body("Превышен лимит запросов");
